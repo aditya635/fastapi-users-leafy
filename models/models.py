@@ -14,8 +14,8 @@ class UserTable(Base, SQLAlchemyBaseUserTable):
 class Images(Base):
     __tablename__ = "images"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True,index=True)
     caption = Column(String)
     url = Column(URLType)
-    user_id = Column(UUID, ForeignKey('users.id'))
+    user_id = Column(UUID(as_uuid=True), ForeignKey('users.id'))
     creator = relationship("UserTable", back_populates="images")

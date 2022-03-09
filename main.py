@@ -6,7 +6,8 @@ from utils.user_manager import get_user_manager
 from database.database import create_db_and_tables
 from auth.user_fastapi import fastapi_users,current_user
 from auth.auth_backend import auth_back
-
+from ml import model_ini
+from routers import files
 
 app = FastAPI()
 app.include_router(
@@ -34,6 +35,9 @@ app.include_router(
 async def authenticated_route(user: UserDB = Depends(current_user)):
     return {"message": f"Hello {user.email}!"}
 
+app.include_router(
+    files.router
+)
 
 @app.on_event("startup")
 async def on_startup():
