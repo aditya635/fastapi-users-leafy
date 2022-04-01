@@ -28,6 +28,17 @@ cloudinary.config(
     api_key= os.environ["API_KEY"],
     api_secret =os.environ["API_SECRET"]
 )
+dicti = ["apple_scab","apple_black_rot","apple_rust","apple",
+           "blueberry",
+           "cherry_mildew","cherry",
+           "corn_gray","corn_rust","corn_leaf_blight","corn",
+           "grape_black_rot","grape_black_measels","grape_blight","grape",
+           "orange",
+           "peach_bacteria","peach","pepper_bell_bacteria","pepper_bell",
+           "poatato_early_blight","potato_late_blight","potato",
+           "raspberry","soyabean","squash_mildew","strawberry_scab","strawberry",
+           "tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato"
+        ]
 
 @router.post('/',response_model=schemas.File,tags=['file'])
 async def upload(cap:str = Form(...) , file: UploadFile = File(...) ,db: AsyncSession = Depends(get_async_session), get_current_user:UserDB = Depends (current_user)):
@@ -56,4 +67,4 @@ def upload(file: UploadFile = File(...)):
     print (result)
     result = result[0]
     result = result.tolist()
-    return (max(result)*100,result.index(max(result))+1)
+    return (max(result)*100,dicti[result.index(max(result))])
