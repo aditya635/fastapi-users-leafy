@@ -36,8 +36,9 @@ dicti = ["apple_scab","apple_black_rot","apple_rust","apple",
            "orange",
            "peach_bacteria","peach","pepper_bell_bacteria","pepper_bell",
            "poatato_early_blight","potato_late_blight","potato",
-           "raspberry","soyabean","squash_mildew","strawberry_scab","strawberry",
-           "tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato"
+           "raspberry","soyabean","squash_mildew","strawberry_scorch","strawberry",
+           "tomato_bacteria","tomato_early_blight","tomato_late_blight","tomato_mold",
+           "tomato_septoria","tomato_spidermite","tomato_target","tomato_curl_virus","tomato_mosiac_virus","tomato"
         ]
 
 @router.post('/',response_model=schemas.File,tags=['file'])
